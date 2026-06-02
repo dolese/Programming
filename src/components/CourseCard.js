@@ -7,8 +7,19 @@ export default function CourseCard({ course, onClick }) {
   return (
     <div
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-label={`${course.title} course — ${course.level}. Open roadmap and materials.`}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick()
+        }
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
       style={{
         background: hovered ? `${course.color}10` : 'rgba(255,255,255,0.03)',
         border: `1px solid ${hovered ? course.color + '55' : 'rgba(255,255,255,0.08)'}`,

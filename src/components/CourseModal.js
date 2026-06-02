@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import RoadmapStep from './RoadmapStep'
 import CodeBlock from './CodeBlock'
 
@@ -12,9 +12,11 @@ const difficultyColor = {
 
 export default function CourseModal({ course, onClose }) {
   const [tab, setTab] = useState('roadmap')
+  const closeRef = useRef(null)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handleKey)
     return () => {
@@ -44,6 +46,9 @@ export default function CourseModal({ course, onClose }) {
     >
       <div
         onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${course.title} course details`}
         style={{
           background: '#111827',
           border: `1px solid ${course.color}44`,
@@ -82,7 +87,9 @@ export default function CourseModal({ course, onClose }) {
             </div>
           </div>
           <button
+            ref={closeRef}
             onClick={onClose}
+            aria-label="Close dialog"
             style={{
               background: 'rgba(255,255,255,0.08)', border: 'none',
               borderRadius: 8, color: '#fff', width: 34, height: 34,
