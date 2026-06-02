@@ -378,6 +378,49 @@ export const learningPaths = [
   },
 ];
 
+export const resources = [
+  // ── Documentation & References ──
+  { category: "Docs", title: "MDN Web Docs", desc: "The definitive reference for HTML, CSS & JavaScript.", url: "https://developer.mozilla.org", icon: "📖", free: true },
+  { category: "Docs", title: "DevDocs", desc: "Fast, searchable, offline-ready docs for 100+ APIs.", url: "https://devdocs.io", icon: "📑", free: true },
+  { category: "Docs", title: "roadmap.sh", desc: "Community-built roadmaps for every developer role.", url: "https://roadmap.sh", icon: "🗺", free: true },
+
+  // ── Practice & Challenges ──
+  { category: "Practice", title: "freeCodeCamp", desc: "Full free curriculum with verified certifications.", url: "https://www.freecodecamp.org", icon: "🔥", free: true },
+  { category: "Practice", title: "LeetCode", desc: "Sharpen algorithms & ace coding interviews.", url: "https://leetcode.com", icon: "🧩", free: true },
+  { category: "Practice", title: "Exercism", desc: "Mentored coding practice in 70+ languages.", url: "https://exercism.org", icon: "💪", free: true },
+  { category: "Practice", title: "Frontend Mentor", desc: "Build real-world UIs from professional designs.", url: "https://www.frontendmentor.io", icon: "🎯", free: true },
+
+  // ── Video & Courses ──
+  { category: "Video", title: "Fireship", desc: "Fast-paced, high-signal videos on modern web dev.", url: "https://www.youtube.com/@Fireship", icon: "⚡", free: true },
+  { category: "Video", title: "The Net Ninja", desc: "Clear, structured playlists for every framework.", url: "https://www.youtube.com/@NetNinja", icon: "🥷", free: true },
+  { category: "Video", title: "freeCodeCamp YouTube", desc: "Full-length, free crash courses on everything.", url: "https://www.youtube.com/@freecodecamp", icon: "▶", free: true },
+
+  // ── Tools & Playgrounds ──
+  { category: "Tools", title: "CodePen", desc: "Frontend playground for HTML, CSS & JS demos.", url: "https://codepen.io", icon: "🛠", free: true },
+  { category: "Tools", title: "StackBlitz", desc: "Instant full-stack IDE that runs in your browser.", url: "https://stackblitz.com", icon: "⚙️", free: true },
+  { category: "Tools", title: "Regex101", desc: "Build, test & debug regular expressions live.", url: "https://regex101.com", icon: "🔣", free: true },
+  { category: "Tools", title: "Can I Use", desc: "Up-to-date browser support tables for web features.", url: "https://caniuse.com", icon: "📊", free: true },
+
+  // ── Books & Long-form ──
+  { category: "Books", title: "Eloquent JavaScript", desc: "A modern, free book to truly learn JavaScript.", url: "https://eloquentjavascript.net", icon: "📚", free: true },
+  { category: "Books", title: "The Odin Project", desc: "Free, project-based full-stack curriculum.", url: "https://www.theodinproject.com", icon: "🛡", free: true },
+  { category: "Books", title: "Refactoring Guru", desc: "Design patterns & refactoring, beautifully explained.", url: "https://refactoring.guru", icon: "🧠", free: true },
+
+  // ── Community ──
+  { category: "Community", title: "Stack Overflow", desc: "Q&A for nearly every bug you'll ever hit.", url: "https://stackoverflow.com", icon: "💬", free: true },
+  { category: "Community", title: "DEV Community", desc: "Read & write developer blog posts and guides.", url: "https://dev.to", icon: "👥", free: true },
+  { category: "Community", title: "GitHub", desc: "Host code, collaborate & build in the open.", url: "https://github.com", icon: "🐙", free: true },
+]
+
+export const resourceCategoryColor = {
+  Docs: "#61DAFB",
+  Practice: "#FF6B35",
+  Video: "#F44336",
+  Tools: "#68A063",
+  Books: "#FFD43B",
+  Community: "#9C27B0",
+}
+
 export const tips = [
   { icon: "🧱", title: "Build every day", text: "Even 30 minutes of coding beats 4-hour weekend binges. Consistency compounds." },
   { icon: "📖", title: "Read error messages", text: "Errors are teachers, not failures. Read them top to bottom. The answer is usually right there." },

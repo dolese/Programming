@@ -106,6 +106,7 @@ codepath/
 │       ├── CourseModal.js   # Full detail modal (4 tabs)
 │       ├── RoadmapStep.js   # Expandable week step
 │       ├── PathCard.js      # Learning path card
+│       ├── ResourceCard.js  # Curated resource hub card
 │       └── CodeBlock.js     # Syntax block + copy button
 ├── vercel.json              # Vercel config
 ├── next.config.js           # Next.js config
