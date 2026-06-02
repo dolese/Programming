@@ -380,36 +380,36 @@ export const learningPaths = [
 
 export const resources = [
   // ── Documentation & References ──
-  { category: "Docs", title: "MDN Web Docs", desc: "The definitive reference for HTML, CSS & JavaScript.", url: "https://developer.mozilla.org", icon: "📖", free: true },
-  { category: "Docs", title: "DevDocs", desc: "Fast, searchable, offline-ready docs for 100+ APIs.", url: "https://devdocs.io", icon: "📑", free: true },
-  { category: "Docs", title: "roadmap.sh", desc: "Community-built roadmaps for every developer role.", url: "https://roadmap.sh", icon: "🗺", free: true },
+  { category: "Docs", title: "MDN Web Docs", desc: "The definitive reference for HTML, CSS & JavaScript.", url: "https://developer.mozilla.org", icon: "📖", free: true, tags: ["html", "css", "javascript", "web", "reference"] },
+  { category: "Docs", title: "DevDocs", desc: "Fast, searchable, offline-ready docs for 100+ APIs.", url: "https://devdocs.io", icon: "📑", free: true, tags: ["javascript", "python", "react", "node", "reference", "api"] },
+  { category: "Docs", title: "roadmap.sh", desc: "Community-built roadmaps for every developer role.", url: "https://roadmap.sh", icon: "🗺", free: true, tags: ["frontend", "backend", "career", "roadmap", "devops"] },
 
   // ── Practice & Challenges ──
-  { category: "Practice", title: "freeCodeCamp", desc: "Full free curriculum with verified certifications.", url: "https://www.freecodecamp.org", icon: "🔥", free: true },
-  { category: "Practice", title: "LeetCode", desc: "Sharpen algorithms & ace coding interviews.", url: "https://leetcode.com", icon: "🧩", free: true },
-  { category: "Practice", title: "Exercism", desc: "Mentored coding practice in 70+ languages.", url: "https://exercism.org", icon: "💪", free: true },
-  { category: "Practice", title: "Frontend Mentor", desc: "Build real-world UIs from professional designs.", url: "https://www.frontendmentor.io", icon: "🎯", free: true },
+  { category: "Practice", title: "freeCodeCamp", desc: "Full free curriculum with verified certifications.", url: "https://www.freecodecamp.org", icon: "🔥", free: true, tags: ["javascript", "react", "python", "html", "css", "certification", "beginner"] },
+  { category: "Practice", title: "LeetCode", desc: "Sharpen algorithms & ace coding interviews.", url: "https://leetcode.com", icon: "🧩", free: true, tags: ["algorithms", "data structures", "interview", "python", "java"] },
+  { category: "Practice", title: "Exercism", desc: "Mentored coding practice in 70+ languages.", url: "https://exercism.org", icon: "💪", free: true, tags: ["python", "javascript", "rust", "go", "mentorship"] },
+  { category: "Practice", title: "Frontend Mentor", desc: "Build real-world UIs from professional designs.", url: "https://www.frontendmentor.io", icon: "🎯", free: true, tags: ["html", "css", "javascript", "react", "frontend", "ui"] },
 
   // ── Video & Courses ──
-  { category: "Video", title: "Fireship", desc: "Fast-paced, high-signal videos on modern web dev.", url: "https://www.youtube.com/@Fireship", icon: "⚡", free: true },
-  { category: "Video", title: "The Net Ninja", desc: "Clear, structured playlists for every framework.", url: "https://www.youtube.com/@NetNinja", icon: "🥷", free: true },
-  { category: "Video", title: "freeCodeCamp YouTube", desc: "Full-length, free crash courses on everything.", url: "https://www.youtube.com/@freecodecamp", icon: "▶", free: true },
+  { category: "Video", title: "Fireship", desc: "Fast-paced, high-signal videos on modern web dev.", url: "https://www.youtube.com/@Fireship", icon: "⚡", free: true, tags: ["javascript", "react", "nextjs", "firebase", "web"] },
+  { category: "Video", title: "The Net Ninja", desc: "Clear, structured playlists for every framework.", url: "https://www.youtube.com/@NetNinja", icon: "🥷", free: true, tags: ["react", "node", "vue", "javascript", "css", "tutorial"] },
+  { category: "Video", title: "freeCodeCamp YouTube", desc: "Full-length, free crash courses on everything.", url: "https://www.youtube.com/@freecodecamp", icon: "▶", free: true, tags: ["python", "javascript", "react", "node", "course"] },
 
   // ── Tools & Playgrounds ──
-  { category: "Tools", title: "CodePen", desc: "Frontend playground for HTML, CSS & JS demos.", url: "https://codepen.io", icon: "🛠", free: true },
-  { category: "Tools", title: "StackBlitz", desc: "Instant full-stack IDE that runs in your browser.", url: "https://stackblitz.com", icon: "⚙️", free: true },
-  { category: "Tools", title: "Regex101", desc: "Build, test & debug regular expressions live.", url: "https://regex101.com", icon: "🔣", free: true },
-  { category: "Tools", title: "Can I Use", desc: "Up-to-date browser support tables for web features.", url: "https://caniuse.com", icon: "📊", free: true },
+  { category: "Tools", title: "CodePen", desc: "Frontend playground for HTML, CSS & JS demos.", url: "https://codepen.io", icon: "🛠", free: true, tags: ["html", "css", "javascript", "frontend", "playground"] },
+  { category: "Tools", title: "StackBlitz", desc: "Instant full-stack IDE that runs in your browser.", url: "https://stackblitz.com", icon: "⚙️", free: true, tags: ["react", "node", "nextjs", "javascript", "ide"] },
+  { category: "Tools", title: "Regex101", desc: "Build, test & debug regular expressions live.", url: "https://regex101.com", icon: "🔣", free: true, tags: ["regex", "javascript", "python", "debugging"] },
+  { category: "Tools", title: "Can I Use", desc: "Up-to-date browser support tables for web features.", url: "https://caniuse.com", icon: "📊", free: true, tags: ["css", "html", "browser", "compatibility", "web"] },
 
   // ── Books & Long-form ──
-  { category: "Books", title: "Eloquent JavaScript", desc: "A modern, free book to truly learn JavaScript.", url: "https://eloquentjavascript.net", icon: "📚", free: true },
-  { category: "Books", title: "The Odin Project", desc: "Free, project-based full-stack curriculum.", url: "https://www.theodinproject.com", icon: "🛡", free: true },
-  { category: "Books", title: "Refactoring Guru", desc: "Design patterns & refactoring, beautifully explained.", url: "https://refactoring.guru", icon: "🧠", free: true },
+  { category: "Books", title: "Eloquent JavaScript", desc: "A modern, free book to truly learn JavaScript.", url: "https://eloquentjavascript.net", icon: "📚", free: true, tags: ["javascript", "book", "beginner", "fundamentals"] },
+  { category: "Books", title: "The Odin Project", desc: "Free, project-based full-stack curriculum.", url: "https://www.theodinproject.com", icon: "🛡", free: true, tags: ["javascript", "ruby", "html", "css", "node", "full-stack"] },
+  { category: "Books", title: "Refactoring Guru", desc: "Design patterns & refactoring, beautifully explained.", url: "https://refactoring.guru", icon: "🧠", free: true, tags: ["design patterns", "refactoring", "oop", "architecture"] },
 
   // ── Community ──
-  { category: "Community", title: "Stack Overflow", desc: "Q&A for nearly every bug you'll ever hit.", url: "https://stackoverflow.com", icon: "💬", free: true },
-  { category: "Community", title: "DEV Community", desc: "Read & write developer blog posts and guides.", url: "https://dev.to", icon: "👥", free: true },
-  { category: "Community", title: "GitHub", desc: "Host code, collaborate & build in the open.", url: "https://github.com", icon: "🐙", free: true },
+  { category: "Community", title: "Stack Overflow", desc: "Q&A for nearly every bug you'll ever hit.", url: "https://stackoverflow.com", icon: "💬", free: true, tags: ["qa", "debugging", "help", "community"] },
+  { category: "Community", title: "DEV Community", desc: "Read & write developer blog posts and guides.", url: "https://dev.to", icon: "👥", free: true, tags: ["blog", "articles", "community", "javascript", "react"] },
+  { category: "Community", title: "GitHub", desc: "Host code, collaborate & build in the open.", url: "https://github.com", icon: "🐙", free: true, tags: ["git", "open source", "collaboration", "version control"] },
 ]
 
 export const resourceCategoryColor = {
