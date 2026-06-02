@@ -4,10 +4,14 @@ import { useState, useEffect } from 'react'
 import CourseCard from './CourseCard'
 import CourseModal from './CourseModal'
 import PathCard from './PathCard'
+import ResourceCard from './ResourceCard'
+import { resourceCategoryColor } from '../app/data'
 
-export default function HomePage({ courses, learningPaths, tips }) {
+export default function HomePage({ courses, learningPaths, resources = [], tips }) {
   const [selectedCourse, setSelectedCourse] = useState(null)
   const [filter, setFilter] = useState('All')
+  const [resFilter, setResFilter] = useState('All')
+  const [resSearch, setResSearch] = useState('')
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -20,6 +24,18 @@ export default function HomePage({ courses, learningPaths, tips }) {
   const filtered = filter === 'All'
     ? courses
     : courses.filter(c => c.level.includes(filter))
+
+  const resourceCategories = ['All', ...new Set(resources.map(r => r.category))]
+  const resQuery = resSearch.trim().toLowerCase()
+  const filteredResources = resources.filter(r => {
+    const matchesCategory = resFilter === 'All' || r.category === resFilter
+    const matchesQuery = !resQuery ||
+      r.title.toLowerCase().includes(resQuery) ||
+      r.desc.toLowerCase().includes(resQuery) ||
+      r.category.toLowerCase().includes(resQuery) ||
+      (r.tags || []).some(t => t.includes(resQuery))
+    return matchesCategory && matchesQuery
+  })
 
   return (
     <div style={{ minHeight: '100vh' }}>
@@ -45,7 +61,7 @@ export default function HomePage({ courses, learningPaths, tips }) {
           </span>
         </div>
         <div style={{ display: 'flex', gap: 4 }}>
-          {['Courses', 'Paths', 'Tips'].map(item => (
+          {['Courses', 'Paths', 'Resources', 'Tips'].map(item => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -130,7 +146,7 @@ export default function HomePage({ courses, learningPaths, tips }) {
               { label: '6 Courses', icon: '📚', c: '#61DAFB' },
               { label: '40+ Projects', icon: '🚀', c: '#FF6B35' },
               { label: '4 Learning Paths', icon: '🗺', c: '#68A063' },
-              { label: 'Free Resources', icon: '🎁', c: '#FFD43B' },
+              { label: `${resources.length}+ Free Resources`, icon: '🎁', c: '#FFD43B' },
             ].map(b => (
               <div key={b.label} style={{
                 background: `${b.c}12`, border: `1px solid ${b.c}33`,
@@ -214,6 +230,115 @@ export default function HomePage({ courses, learningPaths, tips }) {
           ))}
         </div>
       </section>
+
+      {/* ── Resources ── */}
+      {resources.length > 0 && (
+        <section id="resources" style={{ padding: '0 2rem 5rem', maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{
+            display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
+            marginBottom: '2rem', flexWrap: 'wrap', gap: 12,
+          }}>
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#FFD43B', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8 }}>
+                🎁 Free Resources
+              </div>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, fontFamily: "'Playfair Display', serif", margin: 0 }}>
+                The Coding Resource Hub
+              </h2>
+              <p style={{ margin: '0.5rem 0 0', color: 'rgba(255,255,255,0.45)', fontSize: 14 }}>
+                Hand-picked docs, practice sites, videos, tools, books & communities — all free.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              {resourceCategories.map(cat => {
+                const active = resFilter === cat
+                const c = cat === 'All' ? '#FFD43B' : resourceCategoryColor[cat]
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setResFilter(cat)}
+                    style={{
+                      padding: '6px 14px',
+                      background: active ? `${c}1f` : 'transparent',
+                      border: `1px solid ${active ? c + '66' : 'rgba(255,255,255,0.08)'}`,
+                      borderRadius: 8,
+                      color: active ? c : 'rgba(255,255,255,0.4)',
+                      cursor: 'pointer', fontSize: 12,
+                      fontWeight: active ? 600 : 400,
+                      transition: 'all .2s', fontFamily: 'inherit',
+                    }}
+                  >{cat}</button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Search */}
+          <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
+            <span style={{
+              position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)',
+              fontSize: 15, pointerEvents: 'none', opacity: 0.6,
+            }}>🔍</span>
+            <input
+              type="text"
+              value={resSearch}
+              onChange={e => setResSearch(e.target.value)}
+              placeholder="Search resources by name, topic, or category…"
+              style={{
+                width: '100%', boxSizing: 'border-box',
+                padding: '0.85rem 2.6rem',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 12, color: '#fff', fontSize: 14,
+                fontFamily: 'inherit', outline: 'none',
+                transition: 'border-color .2s',
+              }}
+              onFocus={e => e.target.style.borderColor = 'rgba(255,212,59,0.5)'}
+              onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.1)'}
+            />
+            {resSearch && (
+              <button
+                onClick={() => setResSearch('')}
+                aria-label="Clear search"
+                style={{
+                  position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
+                  background: 'rgba(255,255,255,0.1)', border: 'none',
+                  borderRadius: 6, color: '#fff', width: 26, height: 26,
+                  cursor: 'pointer', fontSize: 13, fontFamily: 'inherit',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
+              >✕</button>
+            )}
+          </div>
+
+          {filteredResources.length > 0 ? (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+              gap: 14,
+            }}>
+              {filteredResources.map(r => (
+                <ResourceCard
+                  key={r.title}
+                  resource={r}
+                  color={resourceCategoryColor[r.category] || '#61DAFB'}
+                />
+              ))}
+            </div>
+          ) : (
+            <div style={{
+              textAlign: 'center', padding: '3rem 1rem',
+              color: 'rgba(255,255,255,0.4)',
+            }}>
+              <div style={{ fontSize: 32, marginBottom: 10 }}>🗂</div>
+              <p style={{ margin: 0, fontSize: 14 }}>
+                No resources match “{resSearch}”
+                {resFilter !== 'All' && <> in <strong style={{ color: resourceCategoryColor[resFilter] }}>{resFilter}</strong></>}.
+              </p>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* ── Tips ── */}
       <section id="tips" style={{

@@ -7,6 +7,16 @@ export default function RoadmapStep({ step, color }) {
   return (
     <div
       onClick={() => setOpen(!open)}
+      role="button"
+      tabIndex={0}
+      aria-expanded={open}
+      aria-label={`Week ${step.week}: ${step.title}${step.done ? ' (completed)' : ''}`}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          setOpen(!open)
+        }
+      }}
       style={{
         background: open ? `${color}12` : 'rgba(255,255,255,0.04)',
         border: `1px solid ${open ? color + '44' : 'rgba(255,255,255,0.08)'}`,
